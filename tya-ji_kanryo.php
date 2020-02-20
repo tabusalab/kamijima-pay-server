@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/header.php';
+
 // My SQL データベースの接続
 define('DB_DATABASE','kpay');
 define('DB_USERNAME','root');
@@ -17,25 +19,17 @@ try{
 
 $userid=$_POST['uid'];
 $bal=$_POST['balance'];
+$tya=$_POST['tyaji'];
 
-$query="insert into charge_tab(userid,price,datetime) values('$userid',$bal,cast(now() as datetime))";
+$query="insert into charge_tab(userid,price,balance,datetime) values('$userid',$tya,$bal,cast(now() as datetime))";
 $stmt = $dbh->query($query);
 
-$query="insert into charge_tab(userid,price,datetime) values('$userid',$bal,cast(now() as datetime))";
-$stmt = $dbh->query($query);
+$query2="update money_tab set balance = $bal where userid ='$userid'";
+$stmt2 = $dbh->query($query2);
 
 ?>
 
 
-
-
-
-<!DOCTYPE html>
-<html lang = "ja">
-
-<head>
-        <title>上島Pay</title>
-</head>
 <body>
   <center>
     <font size="4">
@@ -43,9 +37,8 @@ $stmt = $dbh->query($query);
   	</font>
 
 <br>
-
 <br>
-<p><a href="home.php" class="border_spread_btn">買い物リスト一覧へ</a>　　　　
+<p><a href="home_tab.php">ホームへ</a>　　　　
     </center>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <?php
 
 // My SQL データベースの接続
-define('DB_DATABASE','db2019');
-define('DB_USERNAME','db2019');
-define('DB_PASSWORD','db2019-pass');
-define('PDO_DSN','mysql:dbhost=db2019@52.156.45.138;dbname=db2019');
+define('DB_DATABASE','kpay');
+define('DB_USERNAME','root');
+define('DB_PASSWORD','tabusalab11!');
+define('PDO_DSN','mysql:dbhost=db2019@52.156.45.138;dbname=kpay');
 
 try{
     $dbh=new PDO(PDO_DSN , DB_USERNAME , DB_PASSWORD);
@@ -15,32 +15,37 @@ try{
     exit();
 }
 
-$query="select * from rireki_tab";
+$userid=$_POST['uid'];
+$query="select * from history_tab where userid=$userid";
 // 表示してSQLを確認 echo $query;
 $stmt = $dbh->query($query);
 $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 echo "<table border='1'>";
-  echo "<tr><th>店ID</th><th>商品名</th><th>支払額</th><th>チャージ</th><th>残高</th></tr>";
+  echo "<tr><th></th><th>店ID</th><th>商品名</th><th>支払額</th><th>チャージ</th><th>残高</th></tr>";
 
 foreach ($rec as $row){
     //変数への格納
     $userid=$row['userid'];
     $shopid=$row['shopid'];
     $productid=$row['productid'];
-    $tyaji=$row['tyaji'];
-    $payment=$row['payment'];
-    $bal=$row['bal'];
+    $price=$row['row'];
+    $datetime=$row['datetime'];
+   
     
     echo "<tr><td> $shopid </td>";
-    echo "<td> 　$productid </td>";
-    echo "<td>  $payment </td>";
-    echo "　 <td>$tyaji </td>";
-    echo " <td>　$bal </td></tr>";
-
-    echo"</table>";
-
+    echo "<td> 　$productid </td></tr>";
 }
+    
+
+
+
+  echo"</table>";
+
+
+
 ?>
 
 
