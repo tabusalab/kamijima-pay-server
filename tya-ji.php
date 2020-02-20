@@ -24,7 +24,6 @@ $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 foreach ($rec as $row) {
 	$bal = $row['balance'];
 
-
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +53,10 @@ foreach ($rec as $row) {
 <br>
 
     <p>金額 <input type="text" name="tyaji" size="8">円</p>
+    
 <br>
 	<p><input type="submit" name="bt" value="チャージ" ></p>
+
 </form>
 
 <br>

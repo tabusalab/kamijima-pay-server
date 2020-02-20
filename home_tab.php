@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/header.php';
 // My SQL データベースの接続
 define('DB_DATABASE','kpay');
 define('DB_USERNAME','root');
@@ -14,29 +15,29 @@ try{
     exit();
 }
 
-$userid=$_POST['userid'];
-$pass=$_POST['pass'];
 
-if($_POST['userid'] && $_POST['pass']){
 
-$query="select * from user_tab where userid=$userid ";
-$stmt = $dbh->query($query);
-$rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$n = "";
+if(isset($_SESSION['username'])){
+	$username = $_SESSION['username'];
+	try {
+		$query="select * from user_tab where username='$username'";
+		$stmt = $dbh->query($query);
+		$rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($rec as $row) {
-	$id = $row['userid'];
-	$n = $row['username'];
-	$p = $row['pass'];
+		foreach ($rec as $row) {
+			$id = $row['userid'];
+			$n = $row['username'];
+		}
+	}catch(PDOException $e){
+        echo $e->getMessage();
+        exit();
+    }
 
-	if ($id == $userid && $p == $pass) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang = "ja">
-<head>
-	<title>上島Pay</title>
-</head>
+
 
 <body>
 	<center>
@@ -62,18 +63,12 @@ foreach ($rec as $row) {
 		<button type="submit" name="rireki" >履歴</button>
 	</p>
 </form>
-
+<p><a href="./logout.php?token=<?=h(generate_token())?>">ログアウト</a></p>
 </center>
 </body>
 </html>
 
-<?php
-    $cnt=1;
-    break;
-}}
-}else if($cnt!=1){
-
-?>
+<?php } else{ ?>
 
 <!DOCTYPE html>
 <html lang = "ja">
