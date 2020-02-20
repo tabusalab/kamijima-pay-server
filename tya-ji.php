@@ -34,7 +34,38 @@ foreach ($rec as $row) {
 	<font size="4">
 		<h1>チャージ</h1>
 	</font>
+    <style type="text/css">
 
+ 
+body{
+  background-color: #EAEAEA ;
+  color:#000000;
+}
+
+.button{
+  display: block;
+  text-decoration: none;
+  height:35px;
+  width: 120px;
+  line-height: 37px;
+  text-align: center;
+  color:  #FC9D9D;
+  border:solid 1px  #FC9D9D;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.button:hover{
+  background: #FC9D9D;
+  color:white;
+}
+.button_wrapper{
+ text-align:center;
+}
+           </style>
 <br>
 
 <?php
@@ -51,7 +82,7 @@ foreach ($rec as $row) {
     <p>金額 <input type="text" name="tyaji" size="8">円</p>
     
 <br>
-	<p><input type="submit" name="bt" value="チャージ" ></p>
+	<p><input type="submit" name="bt" value="チャージ" class="button"></p>
 
 </form>
 
