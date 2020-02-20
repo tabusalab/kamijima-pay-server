@@ -33,7 +33,7 @@ if(isset($_SESSION['username'])){
         echo $e->getMessage();
         exit();
     }
-
+} 
 
 ?>
 
@@ -45,49 +45,33 @@ if(isset($_SESSION['username'])){
 		<h1>上島Pay</h1>
 	</font>
 
+	<!-- 使える店舗一覧 -->
+
+<?php if(isset($_SESSION['username'])) : ?>
 	<p>ようこそ、<?php echo $n ?>さん！</p>
 
-<form action="tya-ji.php" method="post">
-	<input type="hidden" name="uid" value="<?php echo $id; ?>">
-	<input type="hidden" name="uname" value="<?php echo $n; ?>">
-	<p>
-		<br>
-		<br>
-		<button type="submit" name="tya-ji" >チャージ</button>
-		<br>
-		<br>
-</form>
-<form action="history.php" method="post">
-	<input type="hidden" name="uid" value="<?php echo $id; ?>">
-	<input type="hidden" name="uname" value="<?php echo $n; ?>">
-		<button type="submit" name="rireki" >履歴</button>
-	</p>
-</form>
-<p><a href="./logout.php?token=<?=h(generate_token())?>">ログアウト</a></p>
+	<form action="tya-ji.php" method="post">
+		<input type="hidden" name="uid" value="<?php echo $id; ?>">
+		<input type="hidden" name="uname" value="<?php echo $n; ?>">
+		<p>
+			<br>
+			<br>
+			<button type="submit" name="tya-ji" >チャージ</button>
+			<br>
+			<br>
+	</form>
+	<form action="history.php" method="post">
+		<input type="hidden" name="uid" value="<?php echo $id; ?>">
+		<input type="hidden" name="uname" value="<?php echo $n; ?>">
+			<button type="submit" name="rireki" >履歴</button>
+		</p>
+	</form>
+	<p><a href="./logout.php?token=<?=h(generate_token())?>">ログアウト</a></p>
+<?php else : ?>
+	<p><a href="./login.php">ログイン</a></p>
+<?php endif;?>
 </center>
 </body>
 </html>
 
-<?php } else{ ?>
-
-<!DOCTYPE html>
-<html lang = "ja">
-<center>
-
-<head>
-	<title>上島Pay</title>
-</head>
-
-  <body>
-  	<h1>ログイン失敗</h1>
-   
-                <form action="login.php" method="POST">
-                    <input type='submit' value='ログイン画面へ' ></p>
-                </form>
-
-
-</center>
-</body>
-</html>
-<?php } ?>
 

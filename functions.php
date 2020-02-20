@@ -18,11 +18,11 @@ function require_unlogined_session () {
 function require_logined_session() {
     // セッション開始
     @session_start();
-    // ログインしていなければlogin.phpに遷移
-    if (!isset($_SESSION["username"])) {
-        header('Location: ./login.php');
-        exit;
-    }
+    // // ログインしていなければlogin.phpに遷移
+    // if (!isset($_SESSION["username"])) {
+    //     header('Location: ./login.php');
+    //     exit;
+    // }
 }
 
 // CSRFトークンの生成
