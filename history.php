@@ -19,14 +19,17 @@ try{
 
 
 <body>
+<style type="text/css">
 
  
-
-
+body{
+  background-color: #EAEAEA ;
+  color:#000000;
+}
+</style>
   <center><font size="3">
       <h1>履歴一覧</h1>
 
-</center>
 
 
 
@@ -111,5 +114,11 @@ echo "<table border='1'>";
 
 
 
+
+
+<br>
+	<p><a href="home_tab.php">ホームへ</a>　</p>
+  </center>
+</div>
 </body>
 </html>
