@@ -34,6 +34,7 @@ if($_POST['userid'] && $_POST['pass']){
       session_regenerate_id(true);
       //ユーザ名をセット
       $_SESSION['username'] = $n;
+      $_SESSION['userid'] = $id;
       // ログイン後に/に遷移
       header ('Location: ./home_tab.php');
       exit;

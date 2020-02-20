@@ -47,6 +47,7 @@ if(isset($_SESSION['username'])){
 
 	<!-- 使える店舗一覧 -->
 
+
 	<table border="1">
 	<tr><th>店名</th></tr>
 	<?php
@@ -89,5 +90,3 @@ if(isset($_SESSION['username'])){
 </center>
 </body>
 </html>
-
-
