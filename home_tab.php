@@ -38,6 +38,41 @@ if(isset($_SESSION['username'])){
 ?>
 
 <style type="text/css">
+
+
+
+
+ 
+body{
+  background-color: #EAEAEA ;
+  color:#000000;
+}
+
+.button{
+  display: block;
+  text-decoration: none;
+  height:35px;
+  width: 120px;
+  line-height: 37px;
+  text-align: center;
+  color:  #FC9D9D;
+  border:solid 1px  #FC9D9D;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.button:hover{
+  background: #FC9D9D;
+  color:white;
+}
+.button_wrapper{
+ text-align:center;
+}
+    
+
 table{
   background-color: #FFFFFF;
   border-collapse:collapse;
@@ -99,14 +134,18 @@ td,th{
 		<input type="hidden" name="uname" value="<?php echo $n; ?>">
 		<p>
 			<br>
+<<<<<<< HEAD
 			<button type="submit" name="tya-ji" >チャージ</button>
+=======
+			<button type="submit" name="tya-ji" class="button">チャージ</button>
+>>>>>>> 1caedc9d7248cd7ee8a9484a4ffca68986c3331f
 			<br>
 			<br>
 	</form>
 	<form action="history.php" method="post">
 		<input type="hidden" name="uid" value="<?php echo $id; ?>">
 		<input type="hidden" name="uname" value="<?php echo $n; ?>">
-			<button type="submit" name="rireki" >履歴</button>
+			<button type="submit" name="rireki" class="button">履歴</button>
 		</p>
 	</form>
 	<br>

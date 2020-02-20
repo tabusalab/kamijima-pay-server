@@ -33,7 +33,37 @@ foreach ($rec as $row) {
 
 <body>
   <center>
+	<style type="text/css">
 
+ 
+body{
+  background-color: #EAEAEA ;
+  color:#000000;
+}
+.button{
+  display: block;
+  text-decoration: none;
+  height:35px;
+  width: 120px;
+  line-height: 37px;
+  text-align: center;
+  color:  #FC9D9D;
+  border:solid 1px  #FC9D9D;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.button:hover{
+  background: #FC9D9D;
+  color:white;
+}
+.button_wrapper{
+ text-align:center;
+}
+</style>
   <font size="4">
 		<h1>チャージ確認</h1>
 	</font>
@@ -60,7 +90,9 @@ foreach ($rec as $row) {
     <input type="hidden" name="balance" value="<?php echo $a; ?>">
 
   <br>
-    <input type="submit" value="チャージ" name="bt">
+
+    <input type="submit" value="チャージ" name="bt"class="button">
+
  </form>
 
  </center>

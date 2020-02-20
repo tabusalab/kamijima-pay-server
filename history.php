@@ -20,10 +20,16 @@ try{
 
 <body>
 <style type="text/css">
+<<<<<<< HEAD
+=======
+
+ 
+>>>>>>> 1caedc9d7248cd7ee8a9484a4ffca68986c3331f
 body{
   background-color: #EAEAEA ;
   color:#000000;
 }
+
 table{
   background-color: #FFFFFF;
   border-collapse:collapse;
@@ -44,6 +50,7 @@ td,th{
   background-color: #FFFFFF;
   padding:10px;
 }
+
 </style>
   <center><font size="3">
       <h1>履歴一覧</h1>

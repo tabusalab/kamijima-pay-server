@@ -31,6 +31,15 @@ $stmt2 = $dbh->query($query2);
 
 
 <body>
+
+<style type="text/css">
+
+ 
+body{
+  background-color: #EAEAEA ;
+  color:#000000;
+}
+</style>
   <center>
     <font size="4">
   		<h1>チャージ完了</h1>
