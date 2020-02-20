@@ -41,6 +41,7 @@ if(isset($_SESSION['username'])){
 
 
 
+
  
 body{
   background-color: #EAEAEA ;
@@ -71,6 +72,7 @@ body{
  text-align:center;
 }
     
+
 table{
   background-color: #FFFFFF;
   border-collapse:collapse;
@@ -132,7 +134,11 @@ td,th{
 		<input type="hidden" name="uname" value="<?php echo $n; ?>">
 		<p>
 			<br>
+<<<<<<< HEAD
+			<button type="submit" name="tya-ji" >チャージ</button>
+=======
 			<button type="submit" name="tya-ji" class="button">チャージ</button>
+>>>>>>> 1caedc9d7248cd7ee8a9484a4ffca68986c3331f
 			<br>
 			<br>
 	</form>

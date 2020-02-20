@@ -90,7 +90,9 @@ body{
     <input type="hidden" name="balance" value="<?php echo $a; ?>">
 
   <br>
+
     <input type="submit" value="チャージ" name="bt"class="button">
+
  </form>
 
  </center>
