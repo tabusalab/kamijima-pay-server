@@ -15,12 +15,13 @@ try{
     exit();
 }
 
-$name=$_POST['name'];
-$number=$_POST['number'];
-$Ldate=$_POST['Ldate'];
-$category=$_POST['category'];
+$userid=$_POST['uid'];
+$bal=$_POST['balance'];
 
-$query="insert into user_tab(tyaji,number,Ldate,category) values('$name',$bal,now())";
+$query="insert into charge_tab(userid,price,datetime) values('$userid',$bal,cast(now() as datetime))";
+$stmt = $dbh->query($query);
+
+$query="insert into charge_tab(userid,price,datetime) values('$userid',$bal,cast(now() as datetime))";
 $stmt = $dbh->query($query);
 
 ?>
@@ -42,17 +43,6 @@ $stmt = $dbh->query($query);
   	</font>
 
 <br>
- 
-  <br>
-
-
-<?php
-echo "商品　：　$name <br>";
-echo "個数　：　$number<br>";
-echo "期限　：　$Ldate<br>";
-echo "カテゴリー　：　$category<br>";
-
- ?>
 
 <br>
 <p><a href="home.php" class="border_spread_btn">買い物リスト一覧へ</a>　　　　

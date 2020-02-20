@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/header.php';
 // My SQL データベースの接続
 define('DB_DATABASE','kpay');
 define('DB_USERNAME','root');
@@ -14,29 +15,29 @@ try{
     exit();
 }
 
-$userid=$_POST['userid'];
-$pass=$_POST['pass'];
 
-if($_POST['userid'] && $_POST['pass']){
 
-$query="select * from user_tab where userid=$userid ";
-$stmt = $dbh->query($query);
-$rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$n = "";
+if(isset($_SESSION['username'])){
+	$username = $_SESSION['username'];
+	try {
+		$query="select * from user_tab where username='$username'";
+		$stmt = $dbh->query($query);
+		$rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($rec as $row) {
-	$id = $row['userid'];
-	$n = $row['username'];
-	$p = $row['pass'];
-
-	if ($id == $userid && $p == $pass) {
+		foreach ($rec as $row) {
+			$id = $row['userid'];
+			$n = $row['username'];
+		}
+	}catch(PDOException $e){
+        echo $e->getMessage();
+        exit();
+    }
+} 
 
 ?>
 
-<!DOCTYPE html>
-<html lang = "ja">
-<head>
-	<title>上島Pay</title>
-</head>
+
 
 <body>
 	<center>
@@ -44,55 +45,33 @@ foreach ($rec as $row) {
 		<h1>上島Pay</h1>
 	</font>
 
+	<!-- 使える店舗一覧 -->
+
+<?php if(isset($_SESSION['username'])) : ?>
 	<p>ようこそ、<?php echo $n ?>さん！</p>
 
-<form action="tya-ji.php" method="post">
-	<input type="hidden" name="uid" value="<?php echo $id; ?>">
-	<input type="hidden" name="uname" value="<?php echo $n; ?>">
-	<p>
-		<br>
-		<br>
-		<button type="submit" name="tya-ji" >チャージ</button>
-		<br>
-		<br>
-</form>
-<form action="history.php" method="post">
-	<input type="hidden" name="uid" value="<?php echo $id; ?>">
-	<input type="hidden" name="uname" value="<?php echo $n; ?>">
-		<button type="submit" name="rireki" >履歴</button>
-	</p>
-</form>
-
+	<form action="tya-ji.php" method="post">
+		<input type="hidden" name="uid" value="<?php echo $id; ?>">
+		<input type="hidden" name="uname" value="<?php echo $n; ?>">
+		<p>
+			<br>
+			<br>
+			<button type="submit" name="tya-ji" >チャージ</button>
+			<br>
+			<br>
+	</form>
+	<form action="history.php" method="post">
+		<input type="hidden" name="uid" value="<?php echo $id; ?>">
+		<input type="hidden" name="uname" value="<?php echo $n; ?>">
+			<button type="submit" name="rireki" >履歴</button>
+		</p>
+	</form>
+	<p><a href="./logout.php?token=<?=h(generate_token())?>">ログアウト</a></p>
+<?php else : ?>
+	<p><a href="./login.php">ログイン</a></p>
+<?php endif;?>
 </center>
 </body>
 </html>
 
-<?php
-    $cnt=1;
-    break;
-}}
-}else if($cnt!=1){
-
-?>
-
-<!DOCTYPE html>
-<html lang = "ja">
-<center>
-
-<head>
-	<title>上島Pay</title>
-</head>
-
-  <body>
-  	<h1>ログイン失敗</h1>
-   
-                <form action="login.php" method="POST">
-                    <input type='submit' value='ログイン画面へ' ></p>
-                </form>
-
-
-</center>
-</body>
-</html>
-<?php } ?>
 
