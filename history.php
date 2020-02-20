@@ -22,11 +22,10 @@ try{
 
  
 
-
+<div class="bg-success text-white">
   <center><font size="3">
       <h1>履歴一覧</h1>
 
-</center>
 
 
 
@@ -104,6 +103,7 @@ echo "<table border='1'>";
 ?>
 
 
-
+</center>
+</div>
 </body>
 </html>

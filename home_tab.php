@@ -48,7 +48,7 @@ if(isset($_SESSION['username'])){
 	<!-- 使える店舗一覧 -->
 
 
-	<table border="1">
+	<table border="1" >
 	<tr><th>店名</th></tr>
 	<?php
 		$query5="select * from shop_tab";
