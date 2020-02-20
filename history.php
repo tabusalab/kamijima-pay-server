@@ -20,11 +20,7 @@ try{
 
 <body>
 <style type="text/css">
-<<<<<<< HEAD
-=======
 
- 
->>>>>>> 1caedc9d7248cd7ee8a9484a4ffca68986c3331f
 body{
   background-color: #EAEAEA ;
   color:#000000;
