@@ -36,10 +36,11 @@ $userid=$_SESSION['userid'];
 
 
 
-$query = "SELECT shop_tab.shop_name,product_tab.product_name,product_tab.product_price,history_tab.balance,history_tab.datetime FROM history_tab left outer join shop_tab on history_tab.shopid=shop_tab.shopid left outer join product_tab on history_tab.productid=product_tab.productid where history_tab.userid = $userid order by datetime asc";
+$query = "SELECT shop_tab.shop_name,product_tab.product_name,product_tab.product_price, history_tab.price, history_tab.balance,history_tab.datetime FROM history_tab left outer join shop_tab on history_tab.shopid=shop_tab.shopid left outer join product_tab on history_tab.productid=product_tab.productid where history_tab.userid = $userid order by datetime asc";
 // 表示してSQLを確認 echo $query
 $stmt = $dbh->query($query);
 $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 // $query2 = "SELECT * FROM history_tab where userid = $userid";
 // // 表示してSQLを確認 echo $query
@@ -61,12 +62,17 @@ foreach ($rec as $row){
     $shop_name=$row['shop_name'];
     $product_name=$row['product_name'];
     $product_price=$row['product_price'];
+    $price=$row['price'];
     $balance=$row['balance'];
 
     echo "<tr><td> $i </td>";
     echo "<td> $shop_name </td>";
     echo "<td> 　$product_name </td>";
-    echo "<td> $product_price </td>";
+    if(isset($price)){
+      echo "<td> $price </td>";
+    }else {
+      echo "<td> $product_price </td>";
+    }
     echo "<td> $balance </td>";
     echo "<td> 　$datetime </td></tr>";
   $i++;

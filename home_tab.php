@@ -48,8 +48,9 @@ if(isset($_SESSION['username'])){
 	<!-- 使える店舗一覧 -->
 
 
-	<table border="1">
-	<tr><th>店名</th></tr>
+	<table border="1" >
+	<tbody>
+	<tr><th style="width:25%">店名</th></tr>
 	<?php
 		$query5="select * from shop_tab";
 		$stmt5 = $dbh->query($query5);
@@ -62,6 +63,7 @@ if(isset($_SESSION['username'])){
 		}
 
 	?>
+	</tbody>
 	 </table>
 
 <?php if(isset($_SESSION['username'])) : ?>
