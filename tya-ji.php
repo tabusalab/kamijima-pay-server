@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . '/header.php';
 // My SQL データベースの接続
 define('DB_DATABASE','kpay');
 define('DB_USERNAME','root');
@@ -23,15 +25,9 @@ $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($rec as $row) {
 	$bal = $row['balance'];
-
 ?>
 
-<!DOCTYPE html>
-<html lang = "ja">
 
-<head>
-        <title>上島Pay</title>
-</head>
 <body>
   <center>
 

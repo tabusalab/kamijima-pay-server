@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/header.php';
 // My SQL データベースの接続
 define('DB_DATABASE','kpay');
 define('DB_USERNAME','root');
@@ -30,14 +31,6 @@ foreach ($rec as $row) {
 	$bal = $row['balance'];
 ?>
 
-<!DOCTYPE html>
-<html lang = "ja">
-
-<head>
-        <title>上島Pay</title>
-</head>
-
-
 <body>
   <center>
 
@@ -51,12 +44,10 @@ foreach ($rec as $row) {
   echo "以上の内容で登録して宜しいですか。<br>";
   echo "<br>";
   echo "残高　：　$bal <br>";
-
   echo "入金　：　$tyaji<br>";
 
-$a=$bal+$tyaji;
-
-  echo "残高合計　：　$a<br>";
+    $a=$bal+$tyaji;
+    echo "残高合計　：　$a<br>";
 
 
  ?>
@@ -81,12 +72,7 @@ $a=$bal+$tyaji;
 }else{
 
 ?>
-<!DOCTYPE html>
-<html lang = "ja">
 
-<head>
-        <title>上島Pay</title>
-</head>
 
 
 <body>
@@ -105,7 +91,7 @@ $a=$bal+$tyaji;
 
 <br>
 <br>
-   <p><a href="http://52.156.45.138/~db2019/kamijimapay/tya-ji.php" >戻る</a></p>
+   <p><a href="home_tab.php" >戻る</a></p>
  </center>
 </body>
 </html>
