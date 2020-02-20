@@ -19,14 +19,35 @@ try{
 
 
 <body>
-
- 
-
-
+<style type="text/css">
+body{
+  background-color: #EAEAEA ;
+  color:#000000;
+}
+table{
+  background-color: #FFFFFF;
+  border-collapse:collapse;
+  margin:0 auto;
+}
+th{
+  background-color: #FFFFFF;
+  color:#444444;
+}
+td{
+  border-bottom:1px dashed #444444;
+}
+th,tr:last-child td{
+  background-color: #FFFFFF;
+  border-bottom:2px solid #444444;
+}
+td,th{
+  background-color: #FFFFFF;
+  padding:10px;
+}
+</style>
   <center><font size="3">
       <h1>履歴一覧</h1>
 
-</center>
 
 
 
@@ -52,6 +73,7 @@ $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo "<h2>使用履歴</h2>";
 echo "<table border='1'>";
+
   echo "<tr><th></th><th>店名</th><th>商品名</th><th>支払額</th><th>残高</th><th>日時</th></tr>";
 $i = 1;
 foreach ($rec as $row){
@@ -85,7 +107,8 @@ foreach ($rec as $row){
   $stmt2 = $dbh->query($query2);
   $rec2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
-
+  echo "<br>";
+  echo "<br>";
   echo "<h2>チャージ履歴</h2>";
 echo "<table border='1'>";
   echo "<tr><th></th><th>チャージ金額</th><th>残高</th><th>日時</th></tr>";
@@ -111,5 +134,11 @@ echo "<table border='1'>";
 
 
 
+
+
+<br>
+	<p><a href="home_tab.php">ホームへ</a>　</p>
+  </center>
+</div>
 </body>
 </html>

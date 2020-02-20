@@ -59,6 +59,7 @@ foreach ($rec as $row) {
     <input type="hidden" name="tyaji" value="<?php echo $tyaji; ?>">
     <input type="hidden" name="balance" value="<?php echo $a; ?>">
 
+  <br>
     <input type="submit" value="チャージ" name="bt">
  </form>
 

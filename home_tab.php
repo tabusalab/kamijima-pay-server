@@ -37,6 +37,29 @@ if(isset($_SESSION['username'])){
 
 ?>
 
+<style type="text/css">
+table{
+  background-color: #FFFFFF;
+  border-collapse:collapse;
+  margin:0 auto;
+  width: 300px;
+}
+th{
+  background-color: #FFFFFF;
+  color:#444444;
+}
+td{
+  border-bottom:1px dashed #444444;
+}
+th,tr:last-child td{
+  background-color: #FFFFFF;
+  border-bottom:2px solid #444444;
+}
+td,th{
+  background-color: #FFFFFF;
+  padding:10px;
+}
+</style>
 
 
 <body>
@@ -47,10 +70,10 @@ if(isset($_SESSION['username'])){
 
 	<!-- 使える店舗一覧 -->
 
+	<br>
 
 	<table border="1" >
-	<tbody>
-	<tr><th style="width:25%">店名</th></tr>
+	<tr><th>店名</th></tr>
 	<?php
 		$query5="select * from shop_tab";
 		$stmt5 = $dbh->query($query5);
@@ -63,8 +86,10 @@ if(isset($_SESSION['username'])){
 		}
 
 	?>
-	</tbody>
+	
+
 	 </table>
+	 <br>
 
 <?php if(isset($_SESSION['username'])) : ?>
 	<p>ようこそ、<?php echo $n ?>さん！</p>
@@ -73,7 +98,6 @@ if(isset($_SESSION['username'])){
 		<input type="hidden" name="uid" value="<?php echo $id; ?>">
 		<input type="hidden" name="uname" value="<?php echo $n; ?>">
 		<p>
-			<br>
 			<br>
 			<button type="submit" name="tya-ji" >チャージ</button>
 			<br>
@@ -85,6 +109,7 @@ if(isset($_SESSION['username'])){
 			<button type="submit" name="rireki" >履歴</button>
 		</p>
 	</form>
+	<br>
 	<p><a href="./logout.php?token=<?=h(generate_token())?>">ログアウト</a></p>
 <?php else : ?>
 	<p><a href="./login.php">ログイン</a></p>
